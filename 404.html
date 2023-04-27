@@ -1,92 +1,102 @@
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+   * {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+code {
+  font: 15px/22px arial, sans-serif;
+}
+
+html {
+  background: #fff;
+  color: #222;
+  padding: 15px;
+}
+
+body {
+  margin: 7% auto 0;
+  max-width: 390px;
+  min-height: 180px;
+  padding: 30px 0 15px;
+}
+
+* > body {
+  background: url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;
+  padding-right: 205px;
+}
+
+p {
+  margin: 11px 0 22px;
+  overflow: hidden;
+}
+
+ins {
+  color: #777;
+  text-decoration: none;
+}
+
+a img {
+  border: 0;
+}
+
+@media screen and (max-width: 772px) {
+  body {
+    background: none;
+    margin-top: 0;
+    max-width: none;
+    padding-right: 0;
+  }
+}
+
+#logo {
+  background: url(./red1.svg) no-repeat;
+  margin-left: -5px;
+  filter: brightness(50%) sepia(100%) hue-rotate(180deg); /* Modify the color of the SVG */
+  fill: #ff4747 !important;
+}
+
+}
+
+@media only screen and (min-resolution: 192dpi) {
+  #logo {
+    background: url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;
+    -moz-border-image: url(./red1.svg) 0;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  #logo {
+    background: url(./red1.svg) no-repeat;
+    -webkit-background-size: 100% 100%;
+  }
+}
+
+#logo {
+  display: inline-block;
+  height: 54px;
+  width: 150px;
+}
 
 
-<html><head> 
-    <style>
-        a {
-      color: black;
-      text-decoration: none;
-    }
+    background-image {
+  fill: #ff4747;
+}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <span id="slug"></span> was not found on this server.  <ins>That’s all we know.</ins>
+    <script>
+        // Get the current URL and remove the domain
+        let url = window.location.href;
+        let slug = url.replace(/^.*\/\/[^\/]+/, '');
     
-    a:hover {
-      text-decoration: none;
-      color: inherit;
-    }
-        
-        </style>   
-    
-    <title>Index of /run</title></head><body bgcolor="white">    <h1 id="current-path"></h1>    <hr>    <pre><a style="color: blue; text-decoration: underline;" href="..">..</a><br>   </pre>   <hr></body></html>
-
-
-<html>
-    <title></title>
-  <body>
-
-
-         
-         
-         
-         
-         <script>
-            // Get the current URL of the page
-            var currentUrl = window.location.href;
-      
-            // Get the path of the current directory
-            var currentPath = currentUrl.substring(currentUrl.indexOf(window.location.host) + window.location.host.length);
-      
-            // Remove any query parameters or hash fragments from the URL
-            currentPath = currentPath.split("?")[0];
-            currentPath = currentPath.split("#")[0];
-      
-            // Split the path into an array of directory names
-            var pathArray = currentPath.split("/");
-      
-            // Remove the first (empty) and last (current directory) elements from the array
-            pathArray = pathArray.slice(1, -1);
-      
-            // Build the full path of the current directory, including any parent directories
-            var fullPathTitle = "";
-            for (var i = 0; i < pathArray.length; i++) {
-              fullPathTitle += pathArray[i] + "/";
-            }
-      
-            // Add the name of the current directory to the path
-            fullPathTitle += pathArray[pathArray.length - 1];
-      
-            // Set the title of the page to the full path of the current directory
-            var pageTitle = document.getElementsByTagName("title")[0];
-            pageTitle.innerHTML = "Index of " + fullPathTitle;
-          </script>
-
-<script>
-    
-// Get the current URL of the page
-        var currentUrl = window.location.href;
-      
-        // Get the path of the current directory
-        var currentPath = currentUrl.substring(currentUrl.indexOf(window.location.host) + window.location.host.length);
-      
-        // Remove any query parameters or hash fragments from the URL
-        currentPath = currentPath.split("?")[0];
-        currentPath = currentPath.split("#")[0];
-      
-        // Split the path into an array of directory names
-        var pathArray = currentPath.split("/");
-      
-        // Remove the first (empty) and last (current directory) elements from the array
-        pathArray = pathArray.slice(1, -1);
-      
-        // Build the full path of the current directory, including any parent directories
-        var fullPath = "";
-        var pathLink = "";
-        for (var i = 0; i < pathArray.length; i++) {
-          pathLink += "/" + pathArray[i];
-          fullPath += "<a href='" + pathLink + "/'>" + pathArray[i] + "</a>/";
-        }
-      
-        // Add the link to the current directory
-        fullPath += "<a href='" + currentPath + "'>" + pathArray[pathArray.length - 1] + "</a>/";
-      
-        // Set the content of the 'current-path' div to the full path of the current directory
-        var currentPathDiv = document.getElementById("current-path");
-        currentPathDiv.innerHTML = "Index of " + fullPath;
-      </script>
+        // Insert the slug into the element ID
+        document.getElementById("slug").innerHTML = slug;
+    </script>
