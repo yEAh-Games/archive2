@@ -25,28 +25,6 @@
             <div class="w-64 bg-gray-200 rounded overflow-hidden">
                 <div title="Fetching tweets from database..." id="progress-bar" class="bg-green-500 h-6"></div>
               </div>
-            
-              <script>
-                var progressBar = document.querySelector('#progress-bar');
-                var progress = 0;
-                var targetProgress = 100;
-                var animationDuration = 55000; // 55 seconds
-                var incrementInterval = animationDuration / targetProgress;
-                var intervalId = setInterval(updateProgressBar, incrementInterval);
-            
-                function updateProgressBar() {
-                  if (progress >= targetProgress) {
-                    clearInterval(intervalId);
-                    return;
-                  }
-            
-                  // Simulating progress
-                  progress++;
-            
-                  // Update width
-                  progressBar.style.width = progress + '%';
-                }
-              </script>
         </div>
     </div>
     </div>
