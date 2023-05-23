@@ -21,58 +21,32 @@
 
         <div id="tweetContainer"></div>
         <div id="loadingIcon" class="loading-icon">
-            <img src="https://twitter.yeahgames.net/assets/img/loading.svg" alt="Loading...">
-            <!DOCTYPE html>
-            <html>
-            <head>
-              <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-            </head>
-            <body>
-              <div class="w-64 bg-gray-200 rounded overflow-hidden">
+            <!--<img src="https://twitter.yeahgames.net/assets/img/loading.svg" alt="Loading...">-->
+            <div class="w-64 bg-gray-200 rounded overflow-hidden">
                 <div id="progress-bar" class="bg-green-500 h-6"></div>
               </div>
             
               <script>
                 var progressBar = document.querySelector('#progress-bar');
-                var url = 'tweets.jsonl'; // Replace with the URL of the file you want to load
+                var progress = 0;
+                var targetProgress = 100;
+                var animationDuration = 55000; // 55 seconds
+                var incrementInterval = animationDuration / targetProgress;
+                var intervalId = setInterval(updateProgressBar, incrementInterval);
             
-                fetch(url)
-                  .then(response => {
-                    var totalBytes = response.headers.get('content-length');
-                    var bytesLoaded = 0;
+                function updateProgressBar() {
+                  if (progress >= targetProgress) {
+                    clearInterval(intervalId);
+                    return;
+                  }
             
-                    var reader = response.body.getReader();
+                  // Simulating progress
+                  progress++;
             
-                    function readChunk() {
-                      return reader.read()
-                        .then(({ done, value }) => {
-                          if (done) {
-                            // File has been fully loaded
-                            progressBar.style.width = '100%';
-                            return;
-                          }
-            
-                          bytesLoaded += value.length;
-            
-                          // Calculate the progress percentage
-                          var progress = (bytesLoaded / totalBytes) * 100;
-            
-                          // Update the width of the progress bar
-                          progressBar.style.width = progress + '%';
-            
-                          // Read the next chunk
-                          return readChunk();
-                        });
-                    }
-            
-                    // Start reading the file chunks
-                    return readChunk();
-                  })
-                  .catch(error => console.error(error));
+                  // Update width
+                  progressBar.style.width = progress + '%';
+                }
               </script>
-            </body>
-            </html>
-            
         </div>
     </div>
     </div>
