@@ -1,4 +1,4 @@
-Sitemap: https://archive2.yeahgames.net/sitemap
+Sitemap: https://archive2.yeahgames.net/sitemap.xml
 
 User-agent: *
 Disallow: /.git/*
@@ -6,6 +6,13 @@ Disallow: /.github/*
 Disallow: /_includes/*
 Disallow: /_layouts/*
 Disallow: /_sass/*
+Disallow: /.git
+Disallow: /.github
+Disallow: /_includes
+Disallow: /_layouts
+Disallow: /_sass
+Disallow: /script/*
+Disallow: /script
 Disallow: /.gitignore
 Disallow: /.rubocop.yml
 Disallow: /.travis.yml
@@ -15,3 +22,5 @@ Disallow: /_config.yml
 Disallow: /jekyll-theme-primer.gemspec
 Disallow: /package-lock.json
 Disallow: /package.json
+Disallow: /assets
+Disallow: /assets/*
